@@ -10,7 +10,7 @@ object Codegen {
 
   def makeModule (map: Map[String, Value], name: String) = {
     val struct = new Struct(
-      map.keys.toArray.map{RegInfo(_)},
+      map.keys.toArray.map{RegInfo(_, Structs.Any)},
       name + " Module Struct"
     )
     new Module(name + " Module", struct, map)
@@ -18,11 +18,11 @@ object Codegen {
 
   class StructBuilder {
     val buff = new collection.mutable.ArrayBuffer[String]
-    var name: String = "Built Struct"
+    var name: String = "Anonymous Struct"
 
     def += (s: String) = { buff += s; buff.length - 1 }
 
-    def toStruct () = new Struct(buff.toArray.map{RegInfo(_)}, name)
+    def toStruct () = new Struct(buff.toArray.map{RegInfo(_, Structs.Any)}, name)
   }
 
   class State {

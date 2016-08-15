@@ -136,8 +136,8 @@ object Instruction {
     override def run (st: State) { st.run = false; st.pcadvance = false }
   }
 
-  case object Cast (a: Key, b: Key, t: Struct) extends Inst {
-    //override def run (st: State) { }
+  case class Cast (a: Key, b: Key, t: Struct) extends Inst {
+    override def run (st: State) { }
   }
 
 

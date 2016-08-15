@@ -30,7 +30,7 @@ class State (_code: Code) {
 
   def check(k: Key, t: Struct) = regs.checkType(k, t)
   def as[T](k: Key): T = apply(k).asInstanceOf[T]
-  def checkas[T](k: key, t: Struct) = {
+  def checkas[T](k: Key, t: Struct) = {
     regs.checkType(k ,t)
     regs(k).asInstanceOf[T]
   }
